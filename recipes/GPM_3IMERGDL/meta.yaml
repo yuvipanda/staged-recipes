@@ -10,6 +10,13 @@ pangeo_notebook_version: '2022.06.02'
 recipes:
   - id: gpm3imergdl
     object: 'recipe:recipe'
+    # Authentication required by this recipe to run
+    required_auth:
+      - earthdata: # This will provide EARTHDATA_USERNAME, EARTHDATA_PASSWORD env vars
+          method: env
+      # Optionally, instead it can provide a netrc file
+      - earthdata:
+          method: netrc
 provenance:
   providers:
     - name: 'NASA GES DISC'
